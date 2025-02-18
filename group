@@ -12,6 +12,7 @@ namespace TicTacToetest1
         Random random = new Random();
         int playerWinCount = 0;
         int computerWinCount = 0;
+        int tieCount = 0;
         List<Button> buttons;
 
         public Form1()
@@ -90,7 +91,16 @@ namespace TicTacToetest1
                 label2.Text = "Computer Wins: " + computerWinCount;
                 NewGame();
             }
-           
+
+            else if (buttons.Count == 0)
+     	    {
+        		GameTimer.Stop();
+        		MessageBox.Show("It's a tie!");
+        		tieCount++;
+        		label3.Text = "Tie count: " + tieCount
+        		NewGame();
+            }
+
         }
 
         private void NewGame()
